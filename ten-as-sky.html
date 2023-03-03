@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Title (Taper #10)</title>
+
+    <!-- “Title” Copyright (C) 2023 Author
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright 
+notice and this notice are preserved. This file is offered as-is,
+without any warranty.
+
+This is from Taper #10: Powers Of Ten, Spring 2023:
+
+https://taper.badquar.to/10/title_of_your_work.html
+
+... Include your creative statement here ...
+
+I saw the powers of ten and immediately though to not ten as the number but ten
+as the word in japanese for the heaven and skies so I made this little art piece
+to represent that.
+
+-->
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      a {
+        color: #eee;
+        text-decoration: none;
+      }
+      header {
+        margin: 0;
+        padding: 0;
+        background-color: #444;
+        color: #bbb;
+        position: relative;
+        z-index: 1000;
+      }
+      header > h1 {
+        margin: 0;
+        font-size: 12px;
+        font-family: sans-serif;
+        border-bottom: 1px #999 solid;
+        padding: 5px 10px;
+        line-height: 17px;
+      }
+      p {
+        margin-block: 0;
+      }
+    </style>
+    <style>
+      .sky {
+        position: relative;
+        height: 20vh;
+      }
+      .sky-text {
+        position: absolute;
+        color: skyblue;
+      }
+      .rain-text {
+        position: absolute;
+        color: darkblue;
+        animation: fall 4s linear forwards;
+      }
+      .rain {
+        height: 60vh;
+        position: relative;
+      }
+      .ground-text {
+        position: absolute;
+        color: darkgreen;
+      }
+      .ground {
+        height: 20vh;
+        position: relative;
+      }
+      @keyframes fall {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(60vh);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="nav">
+      <h1>
+        <a href="index.html">Taper #10 : TBA</a> : Spring 2023 <br />
+        <a href="title_of_your_work.html">“Title: ten as in sky”</a> by
+        <a href="about.html#authorlastname">Ivan Zhao</a> :
+        <a href="prev.html">&lt;&lt;</a> &mdash;
+        <a href="next.html">&gt;&gt;</a>
+      </h1>
+    </header>
+    <div class="sky"></div>
+    <div class="rain"></div>
+    <div class="ground"></div>
+    <script>
+      const speed = Math.random() * 1000 + 100;
+      const animationSpeed = Math.random() * 10 + 1;
+      const distance = Math.random() * 10 + 50;
+      const sky = document.querySelector(".sky"),
+        height = sky.offsetHeight,
+        totalHeight = document.body.offsetHeight,
+        totalWidth = document.body.offsetWidth,
+        ground = document.querySelector(".ground"),
+        groundHeight = ground.offsetHeight,
+        rain = document.querySelector(".rain"),
+        rainHeight = rain.offsetHeight,
+        rainWidth = rain.offsetWidth;
+      for (let a, b = 0; 1e3 > b; b++)
+        (a = document.createElement("p")),
+          (a.className = "sky-text"),
+          (a.innerHTML = "\u5929"),
+          (a.style.left = (Math.random() * totalWidth).toString() + "px"),
+          (a.style.top = (Math.random() * height).toString() + "px"),
+          sky.append(a),
+          (a = document.createElement("p")),
+          (a.className = "ground-text"),
+          (a.innerHTML = "\u5730"),
+          (a.style.left = (Math.random() * totalWidth).toString() + "px"),
+          (a.style.top = (Math.random() * groundHeight).toString() + "px"),
+          ground.append(a);
+      const startRainBox = totalHeight - rainHeight;
+      setInterval(() => {
+        {
+          let a = document.createElement("p");
+          (a.className = "rain-text"),
+            (a.innerHTML = "\u96E8"),
+            (a.style.animationDuration = animationSpeed + "s");
+          (a.style.left = (Math.random() * totalWidth).toString() + "px"),
+            rain.append(a);
+        }
+      }, speed);
+    </script>
+  </body>
+</html>

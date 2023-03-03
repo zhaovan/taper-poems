@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Title (Taper #9)</title>
+<!-- “Title” Copyright (C) 2022 Author
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright 
+notice and this notice are preserved. This file is offered as-is,
+without any warranty.
+
+This is from Taper #9: Nine Lives, Fall 2022:
+
+https://taper.badquar.to/9/title_of_your_work.html
+
+... your creative statement here ...
+
+title: choices
+
+this is a piece thinking about state machines and permutations of creation. I wanted it to be about how we can create the futures that we live in, and also
+give agency to the viewer itself. mostly inspired by legend of zelda dungeon designs
+
+
+-->
+<style>body{margin:0;overflow:hidden;background-color:black;color:lightsalmon}a{color:#eee;text-decoration:none}header{margin:0;padding:0;background-color:#444;color:#bbb;position:relative;z-index:1000}header>h1{margin:0;font-size:12px;font-family:sans-serif;border-bottom:1px #999 solid;padding:5px 10px;line-height:17px}.c{width:80%;margin:5vh auto}.c-c{display:flex;align-items:center}.c-c>*{margin-right:12px}.p{color:white;font-style:italic}</style>
+</head>
+<body>
+<header id=nav>
+<h1>
+<a href=index.html>Taper #9 : Nine Lives</a> : Fall 2022 <br />
+<a href=title_of_your_work.html>"Title"</a> by
+<a href=about.html#authorlastname>Author</a> :
+<a href=prev.html>&lt;&lt;</a> &mdash;
+<a href=next.html>&gt;&gt;</a>
+</h1>
+</header>
+<div class=c>
+<p>
+on nights when i am loneliest, i try lay out the foundation for a better
+future <br />i have stories to share, items to part
+</p>
+<div class=c-c>
+<p>choose:</p>
+<button class=t>a group of three</button>
+<button class=s>a throng of six</button>
+</div>
+<p>items left: <span class=n>9</span></p>
+<h2 class=a></h2>
+<p class=p></p>
+<div class=rb></div>
+</div>
+<script>let tl=9;let p=[];const sl=["maybe i am a hoarder of failed emotions, a dragon atop my treasure trove","brimming with fruitless pasts, what ifs, wasted nights","glistening in the sun-kissed overthoughts and underdelivers where","you had brought a clementine (my favorite), and with fingernail","ran through the citrusy grace with ease, handed me a half-smile","so how could i give away your goodness?",];let tls=[["like a half-filled bottle of peppermint schnapps, filled with curmudgeon and resentment","twelve tender kisses","a fifteen dollar train ticket stub",],["like our woven woolen unfurled picnic blankets","four and a half tuxedo cookies","lock of hair laden with life and lice",],["like your warmth from interlaced fingers in windswept hair","cloying aftershave","vhs tapes scribbled with dates",],];let threeTitles=["train tracks","nits","sediment"];let workingTitle="a box of ";let t=document.querySelector(".t");let s=document.querySelector(".s");let n=document.querySelector(".n");let a=document.querySelector(".a");let c=document.querySelector(".p");let rb=document.querySelector(".rb");function checkPoemLength(numLines){if(tl-numLines<0){return;}
+tl-=numLines;switch(numLines){case 3:const rand=Math.abs(Math.round(Math.random()*(tls.length-1)));const lines=tls[rand];const title=threeTitles[rand];tls.splice(rand,1);threeTitles.splice(rand,1);p=p.concat(lines);tl>0?(workingTitle+=title+", "):(workingTitle+="and "+title);break;case 6:tl>0?(workingTitle+="a dragon, "):(workingTitle+="and a dragon");p=p.concat(sl);break;}
+n.innerHTML=tl;if(p.length===9){const htmlPoem=p.map((line)=>{return`<p>${line}</p>`;});a.innerHTML="<hr />"+workingTitle;rb.innerHTML="<hr /><p>Didn't like how this one went? refresh and try again</p>";c.innerHTML=htmlPoem.join(" ");}}
+t.addEventListener("click",()=>{checkPoemLength(3);});s.addEventListener("click",()=>{checkPoemLength(6);});</script>
+</body>
+</html>
